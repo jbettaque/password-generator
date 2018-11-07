@@ -14,7 +14,6 @@ def request_len():
         return -1
 
 
-
 def request_methods():
     chars = "abcdefghijklmnopqrstuvwxyzäöü"
     chars_upper = chars.upper()
