@@ -40,6 +40,8 @@ def request_methods():
                          "(2) UPPER CASE CHARS \n"
                          "(3) numbers 1234567890 \n"
                          "(4) specials !§$%&/()=?*'+#-.,;:[]{}_^ \n"
+                         "(5) ALL (overwrites)\n"
+                         "(6) ALL without specials (overwrites)\n"
                          "Format: '1,2,3' for lower and upper case chars and numbers \n"))
 
     # if "," or "1" or "2" or "3" or "4" not in strength or strength[0] not in ["1", "2", "3", "4"]:
@@ -49,7 +51,7 @@ def request_methods():
 
     # check if input is correct with regex
     # best site ever: https://regex101.com/
-    if not re.match(r'([1234])|([1234],)+', strength):
+    if not re.match(r'([123456])|([123456],)+', strength):
         print("Invalid input for password strength.")
         request_methods()
     else:
@@ -66,6 +68,10 @@ def request_methods():
                 methods.append(numbers)
             if method_number == "4":
                 methods.append(others)
+            if method_number == "5":
+                methods = [chars, chars_upper, numbers, others]
+            if method_number == "6":
+                methods = [chars, chars_upper, numbers]
         return methods
 
 
