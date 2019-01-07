@@ -51,7 +51,7 @@ def request_methods():
 
     # check if input is correct with regex
     # best site ever: https://regex101.com/
-    if not re.match(r'([123456])|([123456],)+', strength):
+    if not re.match(r'([123456])?', strength) or not re.match(r'(([123456]),)+([123456])?', strength):
         print("Invalid input for password strength.")
         request_methods()
     else:
